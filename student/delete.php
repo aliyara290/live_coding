@@ -1,7 +1,7 @@
 <?php
 include "../config/db.php";
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id'];
+if($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $id = $_GET['id'];
     
     $sql = "DELETE FROM student WHERE student_id=$id";
     if($conn->query($sql) == true) {
@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="pt-16 px-6">
     <h1 class="pb-10 text-lg font-bold">Delete Student</h1>
-    <form action="delete.php" method="POST">
+    <form action="delete.php" method="GET">
         <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 
         <h1 class="text-lg font-medium mb-6">Are you sure you want to delete this data?</h1>
